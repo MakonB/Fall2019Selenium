@@ -13,5 +13,7 @@ public class MyFirstSeleniumScript {
 
         driver.get("http://google.com");
 
+        System.out.println("Hello world");
+
     }
 }
