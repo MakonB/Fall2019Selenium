@@ -24,8 +24,10 @@ public class IFrame {
         id.clear();
         id.sendKeys("Java !!!");
 
+        BrowserUtils.wait(2);
         driver.switchTo().defaultContent();
 
+        BrowserUtils.wait(2);
         System.out.println(driver.findElement(By.tagName("h3")).getText());
 
 
