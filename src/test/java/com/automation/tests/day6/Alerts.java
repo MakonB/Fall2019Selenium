@@ -16,24 +16,24 @@ public class Alerts {
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver =new ChromeDriver();
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
 
         List<WebElement>allBut = driver.findElements(By.tagName("button"));
 
         allBut.get(0).click();
 
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
         //System.out.println(driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
 
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
         allBut.get(2).click();
         Alert alert = driver.switchTo().alert();
         alert.sendKeys("Hello, world");
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
 
         alert.accept();
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
         if (driver.findElement(By.id("result")).getText().endsWith("Hello, world")){
             System.out.println("Passed");
         }else{
@@ -43,7 +43,7 @@ public class Alerts {
 
 
 
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
         driver.quit();
     }
 }

@@ -19,9 +19,11 @@ public class ByMultipleOpt {
         Select language = new Select(driver.findElement(By.name("Languages")));
         boolean isMul = language.isMultiple();
         System.out.println(isMul);
-
+        BrowserUtils.wait(3);
         language.selectByVisibleText("Java");
+        BrowserUtils.wait(3);
         language.selectByVisibleText("JavaScript");
+        BrowserUtils.wait(3);
         language.selectByVisibleText("Python");
         BrowserUtils.wait(3);
         List <WebElement> allSel = language.getAllSelectedOptions();

@@ -17,6 +17,7 @@ public class NoSelctDropdown {
         BrowserUtils.wait(2);
         driver.manage().window().maximize();
         driver.findElement(By.id("dropdownMenuLink")).click();
+        BrowserUtils.wait(3);
 
         List<WebElement>allLinks = driver.findElements(By.className("dropdown-item"));
         for (WebElement eachLink : allLinks) {
@@ -25,7 +26,7 @@ public class NoSelctDropdown {
 
 
 
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(3);
         driver.findElement(By.linkText("Amazon")).click();
 
 

@@ -49,7 +49,7 @@ public class DropDowns {
         }
 
                 BrowserUtils.wait(4);
-        driver.quit();
+       // driver.quit();
 
 
     }
