@@ -90,6 +90,6 @@ public class ActionClass {
     @AfterMethod
     public void teardown(){
         BrowserUtils.wait(3);
-        //driver.quit();
+        driver.quit();
     }
 }
