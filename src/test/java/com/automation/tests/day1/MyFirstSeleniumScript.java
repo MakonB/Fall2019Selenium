@@ -1,19 +1,28 @@
 package com.automation.tests.day1;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.ArrayList;
 
 public class MyFirstSeleniumScript {
 
+
+    static  int x =10;
+
+
+
     public static void main(String[] args) {
 
-        WebDriverManager.chromedriver().setup();
 
-        ChromeDriver driver = new ChromeDriver();
+        for (int i = 1; i <=100 ; i++) {
 
-        driver.get("http://google.com");
+          if (i > 80){
+              System.out.println("80");
+          }else if( i >90){
+              System.out.println("90");
+          }
 
-        System.out.println("Hello world");
+
+        }
 
     }
 }
