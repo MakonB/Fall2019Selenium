@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class VehiclePage {
+public class VehicleTest {
 
     private WebDriver driver;
     private String URL = "https://qa2.vytrack.com/user/login";
