@@ -20,6 +20,7 @@ public class NewCalendarEventTest extends AbstractTestBase {
     @Test
     public void defaultOptionsTest(){
 
+        test = report.createTest("");
         LoginPage loginPage  = new LoginPage();
         CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
 
@@ -32,6 +33,7 @@ public class NewCalendarEventTest extends AbstractTestBase {
         String exp = calenderEventsPage.getStartDate();
         String act = DateTimeUtilities.getCurrentDate("MMM d, yyyy");
         Assert.assertEquals(act,exp);
+        test.pass("3");
 
     }
 
@@ -47,6 +49,9 @@ public class NewCalendarEventTest extends AbstractTestBase {
      */
     @Test
     public void timeDifference(){
+        LoginPage loginPage  = new LoginPage();
+        CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
+        test = report.createTest("ihihu");
         loginPage.login();
         calenderEventsPage.navigateTo("Activities", "Calendar Events");
         calenderEventsPage.clickToCreCalEve();
@@ -58,6 +63,7 @@ public class NewCalendarEventTest extends AbstractTestBase {
 
         long actual = DateTimeUtilities.getTimeDifference(startTime,endTime,format);
         Assert.assertEquals(actual,0 );
+        test.pass("ajkjsd");
 
     }
 
@@ -69,17 +75,20 @@ public class NewCalendarEventTest extends AbstractTestBase {
 
     @Test
     public void verifyColumnNames(){
+        LoginPage loginPage  = new LoginPage();
+        CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
+        test = report.createTest("ihihu");
        loginPage.login();
        calenderEventsPage.navigateTo("Activities", "Calendar Events");
 
         List<String> expected = Arrays.asList("TITLE", "CALENDAR", "START", "END", "RECURRENT", "RECURRENCE", "INVITATION STATUS");
         Assert.assertEquals(calenderEventsPage.getColumnNames(), expected);
+        test.pass("ajkjsd");
     }
 
 
     @Test(dataProvider = "calendarEvents")
     public void createCalEvents(String title, String description){
-
         LoginPage loginPage  = new LoginPage();
         CalenderEventsPage calenderEventsPage = new CalenderEventsPage();
 

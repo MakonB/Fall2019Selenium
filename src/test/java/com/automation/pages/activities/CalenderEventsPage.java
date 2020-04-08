@@ -40,7 +40,7 @@ public class CalenderEventsPage extends AbstractPageBase {
 
 
     @FindBy(id  = "tinymce")
-    private WebElement descriptionTextAres;
+    private WebElement descriptionTextArea;
 
     @FindBy(css = "[class='btn-group pull-right'] > button")
     private WebElement saveAndClose;
@@ -54,6 +54,10 @@ public class CalenderEventsPage extends AbstractPageBase {
     private WebElement generalInfoDescription;
 
 
+    @FindBy(css = "iframe[id^='oro_calendar_event_form_description-uid']")
+    private WebElement descriptionFrame;
+
+
     public void enterTitle(String titleValue){
         BrowserUtils.waitForPageToLoad(20);
         wait.until(ExpectedConditions.visibilityOf(title)).sendKeys(titleValue);
@@ -61,8 +65,9 @@ public class CalenderEventsPage extends AbstractPageBase {
 
     public void enterDescription(String description){
         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(descriptionFrame));
-        descriptionTextAres.sendKeys(description);
+        descriptionTextArea.sendKeys(description);
         driver.switchTo().defaultContent();         //exit from frame
+        BrowserUtils.wait(6);
     }
 
 
@@ -84,10 +89,6 @@ public class CalenderEventsPage extends AbstractPageBase {
         return generalInfoDescription.getText();
     }
 
-    ////*[text()='Description']/../following-sibling::div//iframe
-    //iframe[id^='oro_calendar_event_form_description-uid']
-    @FindBy(css = "iframe[id^='oro_calendar_event_form_description-uid']")
-    private WebElement descriptionFrame;
 
     public List<String>getColumnNames(){
         BrowserUtils.waitForPageToLoad(10);
@@ -131,6 +132,7 @@ public class CalenderEventsPage extends AbstractPageBase {
         BrowserUtils.waitForPageToLoad(10);
         wait.until(ExpectedConditions.elementToBeClickable(createCalendarEvent)).click();
         BrowserUtils.waitForPageToLoad(10);
+        BrowserUtils.wait(6);
     }
 
 
