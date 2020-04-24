@@ -50,4 +50,29 @@ public abstract class AbstractPageBase {
                 build().perform();
         BrowserUtils.wait(4);
     }
+
+//    private WebDriver;
+//    private WebDriverWait;
+
+    public void navigateToCalendarEvents(){
+        WebElement loaderMask= null;
+        driver = Driver.getDriver();
+        wait= new WebDriverWait(driver, 20);
+        if(driver.findElements(By.cssSelector("div[class='loader-mask shown']")).size()>0) {
+            loaderMask = driver.findElement(By.cssSelector("div[class='loader-mask shown']"));
+            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+        }
+
+        WebElement activitiesElement = driver.findElement(By.linkText("Activities"));
+        wait.until(ExpectedConditions.visibilityOf(activitiesElement));
+        wait.until(ExpectedConditions.elementToBeClickable(activitiesElement));
+        activitiesElement.click();
+
+        WebElement calendarEventsElement = driver.findElement(By.linkText("Calendar Events"));
+        wait.until(ExpectedConditions.visibilityOf(calendarEventsElement));
+        wait.until(ExpectedConditions.elementToBeClickable(calendarEventsElement));
+        calendarEventsElement.click();
+
+        wait.until(ExpectedConditions.invisibilityOf(loaderMask));
+    }
 }
